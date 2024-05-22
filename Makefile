@@ -1,5 +1,5 @@
 %.pdf: %.md
-	pandoc -tpdf --variable=documentclass:datainlogistics $< > $@
+	pandoc -s -fmarkdown+yaml_metadata_block -tpdf --variable=documentclass:datainlogistics $< -o $@
 
 # PDF files depend on images if the markdown files includes images, so
 # we want to regenerate PDFs if their images are updated.
