@@ -1,0 +1,19 @@
+@startuml
+rectangle Makefile {
+        rectangle pandoc
+        rectangle plantuml
+}
+
+rectangle ".puml" as puml
+rectangle ".md" as md
+rectangle ".svg" as svg
+rectangle ".pdf" as pdf
+
+puml -D-> plantuml
+plantuml -D-> svg
+
+md -D-> pandoc
+svg -> pandoc
+pandoc -D-> pdf
+
+@enduml
