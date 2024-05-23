@@ -31,3 +31,7 @@ directory in this repo, and use
 ```latex
 \usepackage{datainlogistics}
 ```
+
+# Example output
+
+[Result of processing this README](readme.pdf)
