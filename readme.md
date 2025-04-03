@@ -1,3 +1,8 @@
+---
+  title: DIL Markdown
+  subtitle: Rendering Markdown as PDF with DIL template
+  author: Joost Diepenmaat `<joost@jomco.nl>`
+---
 A collection of tools for rendering Markdown files as PDF using the
 Data In Logistics document template.
 
