@@ -28,3 +28,6 @@ include $(sources:.md=.d)
 # If we have plantuml sources, they can be used to generate images
 %.svg : %.puml
 	plantuml -Tsvg $< >$@
+
+%.png : %.puml
+	plantuml -Tpng $< >$@
