@@ -5,7 +5,12 @@ thismkdir:=$(dir $(thismkfile))
 %.pdf: %.md
 # Set TEXINPUTS to ensure latex will load class and pdf template from
 # the directory this Makefile is in
-	 TEXINPUTS="$(thismkdir)latex/:" pandoc --pdf-engine=xelatex -s -fmarkdown+yaml_metadata_block -tpdf --variable links-as-notes=true  --include-in-header "$(thismkdir)use_dil_package.tex" $< -o $@
+	 TEXINPUTS="$(thismkdir)latex/:" pandoc --listings --pdf-engine=xelatex -s -fmarkdown+yaml_metadata_block -tpdf --variable links-as-notes=true  --include-in-header "$(thismkdir)use_dil_package.tex" $< -o $@
+
+%.tex: %.md
+# Set TEXINPUTS to ensure latex will load class and pdf template from
+# the directory this Makefile is in
+	 TEXINPUTS="$(thismkdir)latex/:" pandoc --listings  -s -fmarkdown+yaml_metadata_block -tlatex --variable links-as-notes=true  --include-in-header "$(thismkdir)use_dil_package.tex" $< -o $@
 
 # PDF files depend on images if the markdown files includes images, so
 # we want to regenerate PDFs if their images are updated.
